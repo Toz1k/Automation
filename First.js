@@ -1,2 +1,3 @@
 let company = "pin-up";
-console.log(company);
+console.log(typeof company);
+
