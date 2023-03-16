@@ -29,6 +29,8 @@ console.log(isEmpty(schedule));
 // console.log(isEmpty(schedule));
 
 // 3. Напишіть код для підсумовування всіх зарплат і збережіть у змінній sum. У наведеному вище прикладі має бути 390.
+// Якщо об’єкт salaries порожній, то результат має бути 0.
+
 let salaries = {
     John: 100,
     Ann: 160,
