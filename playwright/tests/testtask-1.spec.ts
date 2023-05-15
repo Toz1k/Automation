@@ -12,7 +12,7 @@ test('test scenario 1', async ({ page }) => {
   await page.locator('[href="/login"]').click();
 
   // Перевіряємо текст на сторінці
-  await expect (page.locator('[class="example"]')).toContainText('Login Page');
+  await expect (page.locator('[class="example"] h2')).toHaveText('Login Page');
 
   // Заповнюємо інпути
   await page.locator('[id="username"]').fill('tomsmith');

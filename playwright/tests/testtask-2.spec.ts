@@ -10,18 +10,17 @@ test('test scenario 2', async ({ page, context }) => {
   await page.locator('[href="/windows"]').click();
 
   // Перевіряємо текст на щойно відкритій сторінці
-  await expect (page.locator('[class="example"]')).toContainText('Opening a new window');
+  await expect (page.locator('[class="example"] h3')).toHaveText('Opening a new window');
 
   // Тицяємо на кнопку "Click Here"
   await page.locator('[href="/windows/new"]').click();
  
   // Змінюємо контекст, переходимо на нову вкладку та чекаємо поки вона завантажиться
   const pagePromise = context.waitForEvent('page');
-  await page.getByText('New Window').click();
   const newPage = await pagePromise;
   await newPage.waitForLoadState();
 
   // Перевіряємо чи на новій вкладці відобразився очікуваний текст
-  await expect(newPage.locator('[class="example"]')).toContainText('New Window');
+  await expect(newPage.locator('[class="example"]')).toHaveText('New Window');
 
 });
