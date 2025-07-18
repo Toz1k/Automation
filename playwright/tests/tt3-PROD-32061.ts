@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 
+// PROD-32061 & PROD-32062
 
 // Setting URLs and Locators: 
 
@@ -57,7 +58,8 @@ test('test scenario PROD-32062', async ({ page }) => {
   // Перевіряємо, що попап містить кнопку "Закрити" 
   await expect (page.locator(passwordRecoveryPopupCloseButton)).toBeVisible();
 
-  // Перевіряємо, що бекграунд заблюрився 
+  // Перевіряємо, що бекграунд заблюрився
   await expect(page.locator(passwordRecoveryPopupBackground)).toHaveCSS('opacity', '1');
+  await expect(page.locator(passwordRecoveryPopupBackground)).toHaveCSS('background-color', 'rgba(13, 16, 22, 0.7)');
 
 });
